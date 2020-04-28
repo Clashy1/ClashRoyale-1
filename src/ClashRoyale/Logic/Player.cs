@@ -464,21 +464,44 @@ namespace ClashRoyale.Logic
                 packet.WriteVInt(0);
                 packet.WriteVInt(100); // Legendary Trophies
 
-                packet.WriteVInt(0); // Current Season Trophies
-                packet.WriteVInt(0);
-                packet.WriteVInt(0); // Displays near League // maybe never used
+                if (Home.Arena.Trophies >= 4000)
+                {
+                    packet.WriteVInt(Home.Arena.Trophies); // Current Season Trophies
+                    packet.WriteVInt(0); //??
+                    packet.WriteVInt(0); // current season place in the top
 
-                packet.WriteVInt(0); // Best Season Trophies
-                packet.WriteVInt(0); // Rank
-                packet.WriteVInt(100); // Trophies
+                    packet.WriteVInt(Home.Arena.Trophies); // Best Season Trophies
+                    packet.WriteVInt(Home.Arena.CurrentArena + 1); // Rank
+                    packet.WriteVInt(0); // Trophies??
+                } else
+                {
+                    packet.WriteVInt(0); // Current Season Trophies
+                    packet.WriteVInt(0); //??
+                    packet.WriteVInt(0); // current season place in the top
+
+                    packet.WriteVInt(0); // Best Season Trophies
+                    packet.WriteVInt(0); // Rank
+                    packet.WriteVInt(0); // Trophies??
+                }
             }
 
             // League
-            packet.WriteVInt(100); // Current Trophies
-            packet.WriteVInt(50); // Past Trophies
-            packet.WriteVInt(1);
-            packet.WriteVInt(0);
-            packet.WriteVInt(0); // set this 1 and it appears on the profile 
+            if (Home.Arena.Trophies >= 4000)
+            {
+                packet.WriteVInt(0); // Place in the top last season
+                packet.WriteVInt(3800); // Trophies last season
+                packet.WriteVInt(0);
+                packet.WriteVInt(0);
+                packet.WriteVInt(1); // set this 1 and it appears on the profile 
+            }
+            else
+            {
+                packet.WriteVInt(1); /// Place in the top last season
+                packet.WriteVInt(0); // Trophies last season
+                packet.WriteVInt(0);
+                packet.WriteVInt(0);
+                packet.WriteVInt(0); // set this 1 and it appears on the profile 
+            }
 
             packet.WriteVInt(8);
 
