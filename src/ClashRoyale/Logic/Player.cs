@@ -643,7 +643,7 @@ namespace ClashRoyale.Logic
             packet.WriteVInt(0);
 
             packet.WriteVInt(TimeUtils.CurrentUnixTimestamp);
-            packet.WriteVInt(TimeUtils.GetSecondsUntilNextMonth); //current season end timer in profile
+            packet.WriteVInt(TimeUtils.LeaderboardTimer); //current season end timer in profile
             packet.WriteVInt(Home.TotalPlayTimeSeconds); // PlayTime
         }
 
