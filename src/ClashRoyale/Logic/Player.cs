@@ -634,16 +634,16 @@ namespace ClashRoyale.Logic
             packet.WriteVInt(0);
 
             packet.WriteVInt(0); // Has Challenge
-            packet.WriteVInt(0); // ID
-            packet.WriteVInt(0); // WINS
-            packet.WriteVInt(0); // LOSSES
+            //packet.WriteVInt(0); // ID
+            //packet.WriteVInt(0); // WINS
+            //packet.WriteVInt(0); // LOSSES
 
             packet.WriteVInt(0);
-            packet.WriteVInt(TimeUtils.GetSecondsUntilNextMonth); //current season end timer in profile
+            packet.WriteVInt(0);
             packet.WriteVInt(0);
 
             packet.WriteVInt(TimeUtils.CurrentUnixTimestamp);
-            packet.WriteVInt(0); // AccountCreated
+            packet.WriteVInt(TimeUtils.GetSecondsUntilNextMonth); //current season end timer in profile
             packet.WriteVInt(Home.TotalPlayTimeSeconds); // PlayTime
         }
 
