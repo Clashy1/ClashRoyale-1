@@ -1,4 +1,5 @@
-﻿using ClashRoyale.Logic;
+using System;
+using ClashRoyale.Logic;
 using ClashRoyale.Protocol.Messages.Server;
 using DotNetty.Buffers;
 
@@ -14,6 +15,144 @@ namespace ClashRoyale.Protocol.Messages.Client.Login
 
         public override async void Process()
         {
+            var i = (int)Device.Player.Home.Arena.Trophies;
+            if (i < 400) //shit but no ideas
+            {
+                Device.Player.Home.Arena.CurrentArena = 1;
+            }
+            else
+            {
+                if (i >= 400 && i < 800)
+                {
+                    Device.Player.Home.Arena.CurrentArena = 2;
+                }
+                else
+                {
+                    if (i >= 800 && i < 1100)
+                    {
+                        Device.Player.Home.Arena.CurrentArena = 3;
+                    }
+                    else
+                    {
+                        if (i >= 1100 && i < 1400)
+                        {
+                            Device.Player.Home.Arena.CurrentArena = 4;
+                        }
+                        else
+                        {
+                            if (i >= 1400 && i < 1700)
+                            {
+                                Device.Player.Home.Arena.CurrentArena = 5;
+                            }
+                            else
+                            {
+                                if (i >= 1700 && i < 2000)
+                                {
+                                    Device.Player.Home.Arena.CurrentArena = 6;
+                                }
+                                else
+                                {
+                                    if (i >= 2000 && i < 2300)
+                                    {
+                                        Device.Player.Home.Arena.CurrentArena = 7;
+                                    }
+                                    else
+                                    {
+                                        if (i >= 2300 && i < 2600)
+                                        {
+                                            Device.Player.Home.Arena.CurrentArena = 8;
+                                        }
+                                        else
+                                        {
+                                            if (i >= 2600 && i < 3000)
+                                            {
+                                                Device.Player.Home.Arena.CurrentArena = 9;
+                                            }
+                                            else
+                                            {
+                                                if (i >= 3000 && i < 3800)
+                                                {
+                                                    Device.Player.Home.Arena.CurrentArena = 10;
+                                                }
+                                                else
+                                                {
+                                                    if (i >= 3800 && i < 4000)
+                                                    {
+                                                        Device.Player.Home.Arena.CurrentArena = 11;
+                                                    }
+                                                    else
+                                                    {
+                                                        if (i >= 4000 && i < 4300)
+                                                        {
+                                                            Device.Player.Home.Arena.CurrentArena = 12;
+                                                        }
+                                                        else
+                                                        {
+                                                            if (i >= 4300 && i < 4600)
+                                                            {
+                                                                Device.Player.Home.Arena.CurrentArena = 13;
+                                                            }
+                                                            else
+                                                            {
+                                                                if (i >= 4600 && i < 4900)
+                                                                {
+                                                                    Device.Player.Home.Arena.CurrentArena = 14;
+                                                                }
+                                                                else
+                                                                {
+                                                                    if (i >= 4900 && i < 5200)
+                                                                    {
+                                                                        Device.Player.Home.Arena.CurrentArena = 15;
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        if (i >= 5200 && i < 5500)
+                                                                        {
+                                                                            Device.Player.Home.Arena.CurrentArena = 16;
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            if (i >= 5500 && i < 5800)
+                                                                            {
+                                                                                Device.Player.Home.Arena.CurrentArena = 17;
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                if (i >= 5800 && i < 6100)
+                                                                                {
+                                                                                    Device.Player.Home.Arena.CurrentArena = 18;
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    if (i >= 6100 && i < 6400)
+                                                                                    {
+                                                                                        Device.Player.Home.Arena.CurrentArena = 19;
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        if (i >= 6400)
+                                                                                        {
+                                                                                            Device.Player.Home.Arena.CurrentArena = 20;
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             await new KeepAliveOkMessage(Device).SendAsync();
         }
     }
