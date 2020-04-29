@@ -34,11 +34,53 @@ namespace ClashRoyale.Utilities.Utils
             get
             {
                 DateTime moment = DateTime.Now;
-                int day = moment.Day * 86400 + moment.Hour * 3600 + moment.Minute * 60 + moment.Second;
-                var seconds = (int)2595000;
+                int month = moment.Month;
+                var seconds = (int)2678400;
+                switch (month)
+                {
+                    case 1:
+                        seconds = (int)2764800;
+                        break;
+                    case 2:
+                        seconds = (int)2678400;
+                        break;
+                    case 3:
+                        seconds = (int)2764800;
+                        break;
+                    case 4:
+                        seconds = (int)2678400;
+                        break;
+                    case 5:
+                        seconds = (int)2764800;
+                        break;
+                    case 6:
+                        seconds = (int)2678400;
+                        break;
+                    case 7:
+                        seconds = (int)2764800;
+                        break;
+                    case 8:
+                        seconds = (int)2764800;
+                        break;
+                    case 9:
+                        seconds = (int)2678400;
+                        break;
+                    case 10:
+                        seconds = (int)2764800;
+                        break;
+                    case 11:
+                        seconds = (int)2678400;
+                        break;
+                    case 12:
+                        seconds = (int)2764800;
+                        break;
+
+                }
+                int day = moment.Day * 86400 + moment.Hour * 3600 + moment.Minute * 60 + moment.Second - 600;
                 return (int)(seconds - day);
             }
         }
+
         public static int CurrentUnixTimestamp => (int) DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
     }
 }
