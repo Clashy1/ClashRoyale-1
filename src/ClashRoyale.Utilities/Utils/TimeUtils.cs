@@ -42,7 +42,14 @@ namespace ClashRoyale.Utilities.Utils
                         seconds = (int)2764800;
                         break;
                     case 2:
-                        seconds = (int)2678400;
+                        if(DateTime.IsLeapYear(year))
+                        {
+                            seconds = (int)2592000;
+                        }
+                        else
+                        {
+                            seconds = (int)2505600;
+                        }
                         break;
                     case 3:
                         seconds = (int)2764800;
