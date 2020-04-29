@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using ClashRoyale.Database;
 using ClashRoyale.Logic;
@@ -85,6 +85,13 @@ namespace ClashRoyale.Protocol.Messages.Client.Alliance
                         break;
                     }
 
+                    case "/gems":
+                        {
+                            Device.Player.Home.Diamonds += cmdValue;
+                            Device.Disconnect();
+                            break;
+                        }
+
                     case "/status":
                     {
                         await new ServerErrorMessage(Device)
@@ -96,12 +103,12 @@ namespace ClashRoyale.Protocol.Messages.Client.Alliance
                         break;
                     }
 
-                    /*case "/free":
+                    case "/free":
                     {
                         Device.Player.Home.FreeChestTime = Device.Player.Home.FreeChestTime.Subtract(TimeSpan.FromMinutes(245));
                         Device.Disconnect();
                         break;
-                    }*/
+                    }
 
                         /*case "/replay":
                         {
@@ -109,7 +116,7 @@ namespace ClashRoyale.Protocol.Messages.Client.Alliance
                             break;
                         }*/
 
-                        /*case "/trophies":
+                        case "/trophies":
                         {
                             if (cmdValue >= 0)
                                 Device.Player.Home.Arena.AddTrophies(cmdValue);
@@ -118,7 +125,14 @@ namespace ClashRoyale.Protocol.Messages.Client.Alliance
 
                             Device.Disconnect();
                             break;
-                        }*/
+                        }
+                    case "/set":
+                        {
+                            Device.Player.Home.Arena.SetTrophies(cmdValue);
+
+                            Device.Disconnect();
+                            break;
+                        }
                 }
             }
             else
