@@ -83,7 +83,7 @@ namespace ClashRoyale.Utilities.Utils
                         break;
 
                 }
-                int day = moment.Day * 86400 + moment.Hour * 3600 + moment.Minute * 60 + moment.Second - 600;
+                int day = moment.Day * 86400 + moment.Hour * 3600 + moment.Minute * 60 + moment.Second;
                 return (int)(seconds - day);
             }
         }
