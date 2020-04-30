@@ -36,6 +36,7 @@ namespace ClashRoyale.Utilities.Utils
                 DateTime moment = DateTime.Now;
                 int month = moment.Month;
                 var seconds = (int)2678400;
+                var year = moment.Year;
                 switch (month)
                 {
                     case 1:
