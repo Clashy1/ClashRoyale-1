@@ -94,13 +94,16 @@ namespace ClashRoyale.Protocol.Messages.Client.Alliance
 
                     case "/status":
                     {
-                        await new ServerErrorMessage(Device)
-                        {
-                            Message =
-                                $"Online Players: {Resources.Players.Count}\nTotal Players: {await PlayerDb.CountAsync()}\n1v1 Battles: {Resources.Battles.Count}\n2v2 Battles: {Resources.DuoBattles.Count}\nTotal Clans: {await AllianceDb.CountAsync()}\nUptime: {DateTime.UtcNow.Subtract(Resources.StartTime).ToReadableString()}"
-                        }.SendAsync();
+                            var entry = new ChatStreamEntry
+                            {
+                                Message =
+                                $"Server status:\nBuild version: 1.5 (for 1.9.2)\nFingerprint SHA:\n{Resources.Fingerprint.Sha}\nOnline Players: {Resources.Players.Count}\nTotal Players: {await PlayerDb.CountAsync()}\n1v1 Battles: {Resources.Battles.Count}\n2v2 Battles: {Resources.DuoBattles.Count}\nTotal Clans: {await AllianceDb.CountAsync()}\nUptime: {DateTime.UtcNow.Subtract(Resources.StartTime).ToReadableString()}"
+                            };
 
-                        break;
+                            entry.SetSender(Device.Player);
+
+                            alliance.AddEntry(entry);
+                            break;
                     }
 
                     case "/free":
