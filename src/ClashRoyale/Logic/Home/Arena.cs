@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using ClashRoyale.Files;
 using ClashRoyale.Files.CsvLogic;
@@ -36,6 +36,23 @@ namespace ClashRoyale.Logic.Home
             }
 
             Trophies += trophies;
+
+            UpdateClanTrophies();
+        }
+        public void SetTrophies(int trophies)
+        {
+            while (true)
+            {
+                var data = GetNextArenaData();
+                if (data == null) break;
+
+                if (data.TrophyLimit <= Trophies + trophies)
+                    CurrentArena = data.Arena;
+                else
+                    break;
+            }
+
+            Trophies = trophies;
 
             UpdateClanTrophies();
         }
