@@ -17,6 +17,7 @@ namespace ClashRoyale.Protocol
 
                 {500, typeof(LogicSwapSpellsCommand)},
                 {501, typeof(LogicSelectDeckCommand)},
+                {503, typeof(LogicOpenChestMainMenuCommand)},
                 {504, typeof(LogicFuseSpellsCommand)},
                 {507, typeof(LogicBuyResourcePackCommand)},
                 {509, typeof(LogicCollectFreeChestCommand)},
